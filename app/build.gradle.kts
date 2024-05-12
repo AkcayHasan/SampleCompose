@@ -25,7 +25,8 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"https://image.tmdb.org/t/p/original/\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p/original\"")
         }
         release {
             isMinifyEnabled = false
@@ -33,7 +34,8 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "BASE_URL", "\"https://image.tmdb.org/t/p/original/\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p/original\"")
         }
     }
     compileOptions {

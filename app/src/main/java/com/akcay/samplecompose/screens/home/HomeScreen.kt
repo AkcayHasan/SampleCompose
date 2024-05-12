@@ -11,12 +11,12 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavBackStackEntry
 import com.akcay.samplecompose.components.JWTopAppBar
 import com.akcay.samplecompose.components.MovieListItem
 
@@ -27,6 +27,10 @@ fun HomeScreen(
     onMovieClick: (Long) -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
+
+    LaunchedEffect(key1 = Unit) {
+        viewModel.getAllPopularMovies()
+    }
 
     val list by viewModel.popularMovieList.collectAsState()
     val loadingState by viewModel.loadingState.collectAsState()
@@ -43,7 +47,9 @@ fun HomeScreen(
         },
     ) {
         Column(
-            modifier = Modifier.fillMaxSize().padding(top = it.calculateTopPadding())
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(top = it.calculateTopPadding())
         ) {
             if (loadingState) {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {

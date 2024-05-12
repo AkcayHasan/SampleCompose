@@ -24,11 +24,7 @@ class HomeViewModel @Inject constructor(
     private val _popularMovieList = MutableStateFlow<MovieResponse?>(value = null)
     val popularMovieList: StateFlow<MovieResponse?> = _popularMovieList
 
-    init {
-        getAllPopularMovies()
-    }
-
-    private fun getAllPopularMovies() {
+    fun getAllPopularMovies() {
         viewModelScope.launch {
             showLoading()
             when(val response = repo.getAllPopularMovies()) {

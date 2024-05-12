@@ -54,7 +54,7 @@ fun MovieListItem(
         ) {
             SubcomposeAsyncImage(
                 modifier = Modifier.clip(CircleShape).size(50.dp),
-                model = if (imageUrl != null) "${SampleComposeConfig.BASE_URL}$imageUrl" else painterResource(
+                model = if (imageUrl != null) "${SampleComposeConfig.BASE_IMAGE_URL}$imageUrl" else painterResource(
                     id = R.drawable.ic_launcher_background
                 ), contentDescription = null,
                 loading = { CircularProgressIndicator() },

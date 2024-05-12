@@ -10,7 +10,9 @@ import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import com.akcay.samplecompose.screens.splash.SplashViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SampleComposeActivity : ComponentActivity() {
 
     private val splashViewModel: SplashViewModel by viewModels()
